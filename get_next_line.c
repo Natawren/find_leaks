@@ -6,7 +6,7 @@
 /*   By: mnarbert <mnarbert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 15:15:57 by mnarbert          #+#    #+#             */
-/*   Updated: 2018/11/30 18:35:51 by mnarbert         ###   ########.fr       */
+/*   Updated: 2018/12/01 17:07:26 by mnarbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,11 @@ int			get_next_line(const int fd, char **line)
 
 	if (fd < 0 || !line)
 		return (-1);
+	// if (ft_strlen(*line) != 0)
+	// {
+	// 	**line = 0;
+	// 	free(*line);
+	// }	
 	if ((list_temp = ft_lstfd(list, fd)) == NULL)
 	{
 		if(!(list_temp = ft_lstnew(NULL, 0, fd)))
@@ -131,6 +136,6 @@ int			get_next_line(const int fd, char **line)
 	}	
 	if (ret == 0 && list_temp->size > 1)
 		return (ft_write_to_line(&list_temp, line, ret)) ? 1 : 0;
-	list = ft_lstdelelem(list, list_temp);
+	//list = ft_lstdelelem(list, list_temp);
 	return (0);
 }
